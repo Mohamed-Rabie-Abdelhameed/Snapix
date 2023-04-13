@@ -6,3 +6,24 @@ body {
   background-color: #391952;
   color: white;
 }
+/* Set the scrollbar width and height */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Set the scrollbar track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Set the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: purple;
+  border-radius: 10px;
+}
+
+/* Set the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b300b3;
+}

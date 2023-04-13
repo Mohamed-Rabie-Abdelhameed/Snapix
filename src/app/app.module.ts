@@ -9,8 +9,9 @@ import { CustomersComponent } from './customers/customers.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddComponent } from './add/add.component';
 import { FormsModule } from '@angular/forms';
-import { ViewComponent } from './view/view.component';
 import { ErrorComponent } from './error/error.component';
+import { CustomerViewComponent } from './customer-view/customer-view.component';
+import { TransferComponent } from './transfer/transfer.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { ErrorComponent } from './error/error.component';
     NavbarComponent,
     CustomersComponent,
     AddComponent,
-    ViewComponent,
-    ErrorComponent
+    ErrorComponent,
+    CustomerViewComponent,
+    TransferComponent
   ],
   imports: [
     BrowserModule,

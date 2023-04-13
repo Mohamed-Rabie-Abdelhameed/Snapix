@@ -1,0 +1,17 @@
+<div class="row">
+  <div id="customer-details" class="col-md-6">
+    <div>
+      <img src="assets/images/user.png" alt="user image" />
+      <h1>{{ customer.name }}</h1>
+      <h2>{{ customer.email }}</h2>
+    </div>
+    <h1 id="balance">${{ customer.balance }}</h1>
+  </div>
+  <div id="customer-transactions" class="col-md-6">
+    <h1>Transactions</h1>
+    <div class="transaction card" *ngFor="let transaction of transactions">
+      <h2 class="card-title">${{ transaction.amount }}</h2>
+      <h3 class="">{{ transaction.date }}</h3>
+    </div>
+  </div>
+</div>
