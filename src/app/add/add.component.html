@@ -1,7 +1,8 @@
-<div>
-    <div class="container">
-      <h1>Add New Customer</h1>
-      <form class="col-md-2" #addForm="ngForm" (ngSubmit)="onAddCustomer(addForm.value)">
+<div class="out">
+  <div class="col-md-12" id="container">
+    <h1>Add New Customer</h1>
+    <form #addForm="ngForm" (ngSubmit)="onAddCustomer(addForm.value)">
+      <div class="form-group">
         <label for="name">Name</label>
         <input
           required
@@ -11,17 +12,41 @@
           id="name"
           ngModel
         />
+      </div>
+      <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" ngModel>
+        <input
+          required
+          placeholder="enter your email"
+          type="email"
+          name="email"
+          id="email"
+          ngModel
+        />
+      </div>
+      <div class="form-group">
         <label for="balance">Balance</label>
-        <input type="number" name="balance" id="balance" ngModel>
-        <div id="buttons">
-          <button mat-button type="submit" [disabled]="addForm.invalid">
-            Add Bug
-          </button>
-          <button mat-button type="reset" (click)="onCancel()">Cancel</button>
-        </div>
-      </form>
-    </div>
+        <input
+          required
+          placeholder="enter your balance"
+          type="number"
+          name="balance"
+          id="balance"
+          ngModel
+        />
+      </div>
+      <div id="buttons">
+        <button class="btn btn-danger" type="reset" (click)="onCancel()">
+          Cancel
+        </button>
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="addForm.invalid"
+        >
+          Add Customer
+        </button>
+      </div>
+    </form>
   </div>
-  
+</div>

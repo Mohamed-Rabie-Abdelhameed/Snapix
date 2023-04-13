@@ -14,6 +14,7 @@ button{
     background-color: #fece32;
     padding: 0 15px 0 15px;
     font-weight: bold;
+    width: fit-content;
     font-size: 1.2em;
     border-radius: 25px;
 }
