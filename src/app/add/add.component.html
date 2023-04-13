@@ -1,0 +1,27 @@
+<div>
+    <div>
+      <h1>Add New Bug</h1>
+      <form #addForm="ngForm" (ngSubmit)="onAddCustomer(addForm.value)">
+        <label for="name">Name</label>
+        <input
+          required
+          placeholder="enter your name"
+          type="text"
+          name="name"
+          id="name"
+          ngModel
+        />
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" ngModel>
+        <label for="balance">Balance</label>
+        <input type="number" name="balance" id="balance" ngModel>
+        <div id="buttons">
+          <button mat-button type="submit" [disabled]="addForm.invalid">
+            Add Bug
+          </button>
+          <button mat-button type="reset" (click)="onCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,23 @@
+nav{
+    margin: 0;
+    padding: 0 10px 10px 15px;
+}
+button{
+    margin-right: 10px;
+}
+
+.nav-item{
+    font-size: 1.2em;    
+}
+
+#transfer{
+    background-color: #fece32;
+    padding: 0 15px 0 15px;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 25px;
+}
+#transfer:hover{
+    background-color: #ffdf7f;
+    cursor: pointer;
+}

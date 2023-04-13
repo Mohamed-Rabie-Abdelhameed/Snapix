@@ -1,0 +1,35 @@
+.row {
+  height: calc(100vh - 100px);
+}
+h1 {
+  color: #391952;
+  font-size: 3.5em;
+}
+img {
+  width: 80%;
+  height: 80%;
+}
+#image {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+p {
+  font-size: 1.2em;
+  color: #391952;
+  margin: 10px 0 10px 0;
+}
+button {
+  background-color: #391952;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 50px 10px 50px;
+  margin-top: 10px;
+}
+button:hover {
+  background-color: #ba80e6;
+  cursor: pointer;
+}
