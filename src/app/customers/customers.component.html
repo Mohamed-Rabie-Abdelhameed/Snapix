@@ -1,0 +1,26 @@
+<div>
+    <button class="btn" id="add" routerLink="/add">
+        <i>
+            <img src="assets/images/add.png" alt="add" />
+        </i>
+    </button>
+  <div class="row">
+    <div class="card col-md-2" *ngFor="let customer of customers">
+      <img class="card-img-top" src="assets/images/user.png" alt="" />
+
+      <div class="card-body">
+        <h5 class="card-title">{{ customer.name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ customer.email }}</h6>
+        <p class="card-text">${{ customer.balance }}</p>
+        <div id="buttons">
+          <button class="btn btn-danger" (click)="onDelete(customer.id)">
+            Delete
+          </button>
+          <button class="btn btn-primary" routerLink="/view/{{ customer.id }}">
+            View
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -27,7 +27,7 @@ export class CustomersComponent {
     
   }
 
-  deleteCustomer(id: string) {
+  onDelete(id: string) {
     this.customerAPI.deleteCustomer(id).subscribe((data) => {
       this.fetchCustomers();
     })
