@@ -30,18 +30,19 @@ export class AddComponent {
       .subscribe((data) => {
         customerExists = data;
         if (customerExists) {
-          alert('Customer already exists');
+          this.snackbar.open('Customer already exists', 'Ok', {
+            duration: 3000,
+            panelClass: ['error-snackbar'],
+          });
           return;
         } else {
           this.customerAPI.createCustomer(newCustomer);
-          alert('Customer added successfully');
-          
+          this.snackbar.open('Customer added successfully', 'Ok', {
+            duration: 3000,
+            panelClass: ['snackbar'],
+          });
           this.addForm.reset();
         }
-      });
-      this.snackbar.open('Customer added successfully', 'Close', {
-        duration: 3000,
-        // panelClass: ['green-snackbar'],
       });
   }
   onCancel() {

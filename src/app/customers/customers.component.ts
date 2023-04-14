@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CustomersServiceService } from '../services/customers-service.service';
 import { Customer } from '../models/customer';
 import { TransactionsServiceService } from '../services/transactions-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-customers',
@@ -11,7 +12,8 @@ import { TransactionsServiceService } from '../services/transactions-service.ser
 export class CustomersComponent {
   constructor(
     private customerAPI: CustomersServiceService,
-    private transactionsAPI: TransactionsServiceService
+    private transactionsAPI: TransactionsServiceService,
+    private snackbar: MatSnackBar
   ) {}
 
   customers: Customer[] = [];
@@ -32,6 +34,10 @@ export class CustomersComponent {
     this.customerAPI.deleteCustomer(id).subscribe((data) => {
       this.transactionsAPI.deleteUserTransactions(id);
       this.fetchCustomers();
+    });
+    this.snackbar.open('Customer deleted', 'OK', {
+      duration: 3000,
+      panelClass: ['snackbar'],
     });
   }
 }

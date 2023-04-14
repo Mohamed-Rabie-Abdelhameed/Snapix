@@ -28,7 +28,25 @@ body {
   background: #b300b3;
 }
 
-.green-snackbar{
-  background-color: #35a80083;
-  color: white;
+.snackbar{
+  background-color: #b376e262;
+  width:fit-content;
+  color: #391952;
+}
+
+.snackbar button *{
+  color: #391952;
+}
+  
+
+.error-snackbar{
+  background-color: #ff1f1f75;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  width:fit-content;
+  color: black;
+}
+
+.error-snackbar button *{
+  color: black;
 }

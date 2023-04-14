@@ -5,6 +5,7 @@ import { Transaction } from '../models/transaction';
 import { Location } from '@angular/common';
 import { CustomersServiceService } from '../services/customers-service.service';
 import { Customer } from '../models/customer';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-transfer',
@@ -15,7 +16,8 @@ export class TransferComponent implements OnInit{
   constructor(
     private customersAPI: CustomersServiceService,
     private transactionsAPI: TransactionsServiceService,
-    private location: Location
+    private location: Location,
+    private snackbar: MatSnackBar
   ) {}
 
   customers: Customer[] = [];
@@ -49,15 +51,24 @@ export class TransferComponent implements OnInit{
       (customer) => customer.email === transaction.receiver
     );
     if(this.senderCustomer.id === this.receiverCustomer.id){
-      alert("Sender and Receiver cannot be same");
+      this.snackbar.open('Sender and Receiver cannot be same', 'Dismiss', {
+        duration: 3000,
+        panelClass: ['error-snackbar'],
+      });
       return;
     }
     else if (this.senderCustomer.balance < transaction.amount) {
-      alert('Insufficient Balance');
+      this.snackbar.open('Insufficient Balance', 'Dismiss', {
+        duration: 3000,
+        panelClass: ['error-snackbar'],
+      });
       return;
     }
     else if (transaction.amount <= 0) {
-      alert('Invalid Amount');
+      this.snackbar.open('Amount must be greater than 0', 'Dismiss', {
+        duration: 3000,
+        panelClass: ['error-snackbar'],
+      });
       return;
     }else{
     this.senderCustomer.balance -= transaction.amount;
@@ -68,8 +79,6 @@ export class TransferComponent implements OnInit{
     alert('Transaction Successful');}
     this.addForm.reset();
   }
-
-  
 
   onCancel() {
     this.location.back();

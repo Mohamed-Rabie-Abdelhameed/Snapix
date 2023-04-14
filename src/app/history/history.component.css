@@ -4,9 +4,9 @@
 
 .card{
     border-radius: 25px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    background-color: #7c2db86b;
-    padding: 10px;
+    box-shadow: 0 0 5px #ccc;
+    background-color: #8f4ac46b;
+    padding: 20px;
 }
 
 h3{
@@ -17,20 +17,20 @@ h3{
 }
 
 .card-title{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #391952;
 }
 
 .card-subtitle{
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: #7c2db8;
 }
 
 .card-text{
     text-align: end;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: #391952;
 }
 

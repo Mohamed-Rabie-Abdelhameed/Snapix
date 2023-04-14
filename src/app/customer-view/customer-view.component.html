@@ -13,7 +13,10 @@
       <img src="assets/images/not-found.gif" alt="" />
       <h1>No transactions found</h1>
     </div>
-    <div class="transaction card" *ngFor="let transaction of transactions">
+    <div
+      class="transaction card"
+      *ngFor="let transaction of transactions"
+    >
       <h2 class="card-title">${{ transaction.amount }}</h2>
       <h3 id="details" class="card-subtitle">
         {{ transaction.sender }}

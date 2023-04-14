@@ -4,6 +4,7 @@ import { Customer } from '../models/customer';
 import { ActivatedRoute } from '@angular/router';
 import { Transaction } from '../models/transaction';
 import { TransactionsServiceService } from '../services/transactions-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-customer-view',
