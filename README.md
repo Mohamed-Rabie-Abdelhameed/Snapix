@@ -1,27 +1,35 @@
+
 # Snapix
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+Snapix is an Angular website for transferring money. With Snapix, users can easily send and receive money from anywhere in the world. Snapix is designed to make the process of transferring money simple and intuitive, with a user-friendly interface and powerful features. The website is fully responsive, so it can be accessed on a variety of devices, including desktops, tablets, and smartphones.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Snapix includes a range of features to make money transfer easy:
 
-## Code scaffolding
+- Send and receive money
+- View transaction history
+- Manage recipients and accounts
+- Easy-to-use interface
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Live Demo
 
-## Build
+Check out the live demo of Snapix at https://mohamed-rabie-abdelhameed.github.io/Snapix/
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Technologies used
 
-## Running unit tests
+Snapix is built using the following technologies:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Angular
+- TypeScript
+- HTML
+- CSS
+- Bootstrap
 
-## Running end-to-end tests
+## Contributions
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Contributions to Snapix are welcome! If you find a bug or would like to suggest a feature, please feel free to open an issue or submit a pull request.
 
-## Further help
+## License
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Snapix is licensed under the MIT License. See the [LICENSE](https://github.com/Mohamed-Rabie-Abdelhameed/Snapix/blob/main/LICENSE) file for more details.
