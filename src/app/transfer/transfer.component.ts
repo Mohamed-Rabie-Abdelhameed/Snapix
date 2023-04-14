@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './transfer.component.html',
   styleUrls: ['./transfer.component.css'],
 })
-export class TransferComponent implements OnInit{
+export class TransferComponent implements OnInit {
   constructor(
     private customersAPI: CustomersServiceService,
     private transactionsAPI: TransactionsServiceService,
@@ -29,7 +29,6 @@ export class TransferComponent implements OnInit{
       this.customers = data;
     });
   }
-
 
   @ViewChild('transferForm') addForm: NgForm;
 
@@ -50,33 +49,41 @@ export class TransferComponent implements OnInit{
     this.receiverCustomer = this.customers.find(
       (customer) => customer.email === transaction.receiver
     );
-    if(this.senderCustomer.id === this.receiverCustomer.id){
+    if (this.senderCustomer.id === this.receiverCustomer.id) {
       this.snackbar.open('Sender and Receiver cannot be same', 'Dismiss', {
         duration: 3000,
         panelClass: ['error-snackbar'],
       });
       return;
-    }
-    else if (this.senderCustomer.balance < transaction.amount) {
+    } else if (this.senderCustomer.balance < transaction.amount) {
       this.snackbar.open('Insufficient Balance', 'Dismiss', {
         duration: 3000,
         panelClass: ['error-snackbar'],
       });
       return;
-    }
-    else if (transaction.amount <= 0) {
+    } else if (transaction.amount <= 0) {
       this.snackbar.open('Amount must be greater than 0', 'Dismiss', {
         duration: 3000,
         panelClass: ['error-snackbar'],
       });
       return;
-    }else{
-    this.senderCustomer.balance -= transaction.amount;
-    this.receiverCustomer.balance += transaction.amount;
-    this.customersAPI.updateCustomer(this.senderCustomer.id, this.senderCustomer);
-    this.customersAPI.updateCustomer(this.receiverCustomer.id, this.receiverCustomer);
-    this.transactionsAPI.createTransaction(newTransaction);
-    alert('Transaction Successful');}
+    } else {
+      this.senderCustomer.balance -= transaction.amount;
+      this.receiverCustomer.balance += transaction.amount;
+      this.customersAPI.updateCustomer(
+        this.senderCustomer.id,
+        this.senderCustomer
+      );
+      this.customersAPI.updateCustomer(
+        this.receiverCustomer.id,
+        this.receiverCustomer
+      );
+      this.transactionsAPI.createTransaction(newTransaction);
+      this.snackbar.open('Transaction Successful', 'Dismiss', {
+        duration: 3000,
+        panelClass: ['success-snackbar'],
+      });
+    }
     this.addForm.reset();
   }
 
