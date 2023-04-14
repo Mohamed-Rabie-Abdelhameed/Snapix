@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
 import { CustomersServiceService } from '../services/customers-service.service';
 import { Customer } from '../models/customer';
+import { TransactionsServiceService } from '../services/transactions-service.service';
 
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
-  styleUrls: ['./customers.component.css']
+  styleUrls: ['./customers.component.css'],
 })
 export class CustomersComponent {
-  constructor(private customerAPI: CustomersServiceService) { }
+  constructor(
+    private customerAPI: CustomersServiceService,
+    private transactionsAPI: TransactionsServiceService
+  ) {}
 
   customers: Customer[] = [];
 
@@ -20,17 +24,14 @@ export class CustomersComponent {
     this.customerAPI.getCustomers().subscribe((data) => {
       console.log(data);
       this.customers = data;
-    })
+    });
   }
 
-  editCustomer(customer: Customer) {
-    
-  }
 
   onDelete(id: string) {
     this.customerAPI.deleteCustomer(id).subscribe((data) => {
+      this.transactionsAPI.deleteUserTransactions(id);
       this.fetchCustomers();
-    })
+    });
   }
-
 }

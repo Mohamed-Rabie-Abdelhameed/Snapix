@@ -73,3 +73,24 @@ img{
 #add:hover{
     background-color: #f7b500;
 }
+
+#not-found{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px);
+    width: 100%;
+}
+
+#not-found h1{
+    font-size: 2.5rem;
+    color: #391952;
+    margin: 10px;
+}
+
+#not-found img{
+    width: 40%;
+    max-width: 400px;
+    margin: 0;
+}

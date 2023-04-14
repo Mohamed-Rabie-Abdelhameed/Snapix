@@ -1,0 +1,21 @@
+<div id="not-found" *ngIf="transactions.length === 0">
+  <img src="assets/images/not-found.gif" alt="" />
+  <h1>No transactions found</h1>
+</div>
+<div class="out">
+  <div class="row col-md-12 justify-content-evenly">
+    <div class="card col-md-3" *ngFor="let transaction of transactions">
+      <h2 class="card-title">${{ transaction.amount }}</h2>
+      <h3 class="card-subtitle">
+        {{ transaction.sender }}
+        <i>
+          <img src="assets/images/arrow.png" alt="" />
+        </i>
+        {{ transaction.receiver }}
+      </h3>
+      <h4 class="card-text">
+        {{ formatDate(transaction.date) }}
+      </h4>
+    </div>
+  </div>
+</div>

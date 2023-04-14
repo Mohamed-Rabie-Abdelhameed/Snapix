@@ -1,4 +1,9 @@
-<div>
+<!-- add a condition if the customers array is empty display a message saying that no users found -->
+<div id="not-found" *ngIf="customers.length === 0">
+  <img src="assets/images/not-found.gif" alt="">
+  <h1>No users found</h1>
+</div>
+<div >
     <button class="btn" id="add" routerLink="/add">
         <i>
             <img src="assets/images/add.png" alt="add" />

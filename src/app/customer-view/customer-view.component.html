@@ -9,9 +9,20 @@
   </div>
   <div id="customer-transactions" class="col-md-6">
     <h1>Transactions</h1>
+    <div id="not-found" *ngIf="transactions.length === 0">
+      <img src="assets/images/not-found.gif" alt="" />
+      <h1>No transactions found</h1>
+    </div>
     <div class="transaction card" *ngFor="let transaction of transactions">
       <h2 class="card-title">${{ transaction.amount }}</h2>
-      <h3 class="">{{ transaction.date }}</h3>
+      <h3 id="details" class="card-subtitle">
+        {{ transaction.sender }}
+        <i>
+          <img id="arrow" src="assets/images/arrow.png" alt="" />
+        </i>
+        {{ transaction.receiver }}
+      </h3>
+      <h3 id="date">{{ formatDate(transaction.date) }}</h3>
     </div>
   </div>
 </div>

@@ -11,27 +11,31 @@ export class CustomersServiceService {
   constructor(private http: HttpClient) {}
 
   createCustomer(customer: Customer) {
-    return this.http.post<{
-      name: string;
-      email: string;
-      balance: number;
-    }>(`${this.url}/customers.json`, customer).subscribe((responseData) => {
-      console.log(responseData);
-    });
+    return this.http
+      .post<{
+        name: string;
+        email: string;
+        balance: number;
+      }>(`${this.url}/customers.json`, customer)
+      .subscribe((responseData) => {
+        console.log(responseData);
+      });
   }
 
   getCustomers() {
-    return this.http.get<{ [key: string]: Customer }>(`${this.url}/customers.json`).pipe(
-      map((responseData) => {
-        const customersArray: Customer[] = [];
-        for (const key in responseData) {
-          if (responseData.hasOwnProperty(key)) {
-            customersArray.push({ ...responseData[key], id: key });
+    return this.http
+      .get<{ [key: string]: Customer }>(`${this.url}/customers.json`)
+      .pipe(
+        map((responseData) => {
+          const customersArray: Customer[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              customersArray.push({ ...responseData[key], id: key });
+            }
           }
-        }
-        return customersArray;
-      })
-    );
+          return customersArray;
+        })
+      );
   }
 
   getCustomer(id: string) {
@@ -39,10 +43,27 @@ export class CustomersServiceService {
   }
 
   updateCustomer(id: string, customer: Customer) {
-    return this.http.patch(`${this.url}/customers/${id}.json`, customer);
+    return this.http.patch(`${this.url}/customers/${id}.json`, customer).subscribe();
   }
 
   deleteCustomer(id: string) {
     return this.http.delete(`${this.url}/customers/${id}.json`);
+  }   
+
+  CustomerAlreadyExists(email: string) {
+    return this.http
+      .get<{ [key: string]: Customer }>(`${this.url}/customers.json`)
+      .pipe(
+        map((responseData) => {
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              if (responseData[key].email === email) {
+                return true;
+              }
+            }
+          }
+          return false;
+        })
+      );
   }
 }

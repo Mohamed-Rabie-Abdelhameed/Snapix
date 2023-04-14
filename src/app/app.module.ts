@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { CustomerViewComponent } from './customer-view/customer-view.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { HistoryComponent } from './history/history.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar'
 
 @NgModule({
   declarations: [
@@ -22,14 +24,16 @@ import { TransferComponent } from './transfer/transfer.component';
     AddComponent,
     ErrorComponent,
     CustomerViewComponent,
-    TransferComponent
+    TransferComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

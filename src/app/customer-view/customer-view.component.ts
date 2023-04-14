@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CustomersServiceService } from '../services/customers-service.service';
 import { Customer } from '../models/customer';
 import { ActivatedRoute } from '@angular/router';
+import { Transaction } from '../models/transaction';
+import { TransactionsServiceService } from '../services/transactions-service.service';
 
 @Component({
   selector: 'app-customer-view',
@@ -10,22 +12,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CustomerViewComponent implements OnInit {
   customer: Customer;
-  transactions: any = [
-    { date: '2019-01-01', amount: 1550 },
-    { date: '2019-01-02', amount: 666 },
-    { date: '2019-01-03', amount: 777 },
-    { date: '2019-01-04', amount: 888 },
-    { date: '2019-01-05', amount: 999 },
-    { date: '2019-01-01', amount: 1550 },
-    { date: '2019-01-02', amount: 666 },
-    { date: '2019-01-03', amount: 777 },
-    { date: '2019-01-04', amount: 888 },
-    { date: '2019-01-05', amount: 999 },
-
-  ];
+  transactions: Transaction[] = [];
   id: string;
   constructor(
     private customersAPI: CustomersServiceService,
+    private transactionsAPI: TransactionsServiceService,
     private activeRoute: ActivatedRoute
   ) {}
 
@@ -37,6 +28,18 @@ export class CustomerViewComponent implements OnInit {
     this.customersAPI.getCustomer(id).subscribe((data) => {
       console.log(data);
       this.customer = data;
+      this.fetchTransactions(this.customer.email);
     });
+  }
+
+  fetchTransactions(email: string) {
+    this.transactionsAPI.getUserTransactions(email).subscribe((data) => {
+      console.log(data);
+      this.transactions = data;
+    });
+  }
+
+  formatDate(date: Date) {
+    return new Date(date).toLocaleString();
   }
 }
