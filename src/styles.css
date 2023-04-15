@@ -1,6 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Poppins";
+  src: url('assets/fonts/Poppins-Bold.ttf');
+  src: url('assets/fonts/Poppins-Light.ttf');
+  src: url('assets/fonts/Poppins-Medium.ttf');
+  src: url('assets/fonts/Poppins-Regular.ttf');
+}
+
+
 body {
   background-color: #f8f2fc;
+  font-family: "Poppins", sans-serif;
 }
 * ::selection {
   background-color: #391952;
